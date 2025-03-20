@@ -12,8 +12,7 @@ function AlertTab() {
   // New warnings generator
   const getWarnings = () => {
     const warnings = [];
-    
-    // Check rack capacities
+ 
     rackPerformanceData.forEach(rack => {
       const totalWeight = rack.products.reduce((sum, p) => sum + p.weight, 0);
       const capacityPercentage = (totalWeight / rack.maxCapacity) * 100;

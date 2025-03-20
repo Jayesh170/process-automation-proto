@@ -27,7 +27,7 @@ const RackTable = () => {
             <th className="p-2">Weight (kg)</th>
             <th className="p-2">Quantity</th>
           </tr>
-        </thead>
+        </thead>5
         <tbody>
           {formattedData.map((item, index) => (
             <tr key={index} className="border-b border-gray-700 text-center">
