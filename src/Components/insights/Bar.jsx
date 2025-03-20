@@ -2,7 +2,7 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, LabelList } 
 import { motion } from "framer-motion";
 import { rackPerformanceData } from "../data/RackPerformanceData";
 
-// Process the data: Calculate total weight per rack and handle product labels
+
 const transformedData = rackPerformanceData.map((rack) => {
   const totalWeight = rack.products.reduce((sum, product) => sum + product.weight, 0);
   const productIds = rack.products.map((product) => product.productId).join(", "); // Join product IDs
@@ -10,7 +10,7 @@ const transformedData = rackPerformanceData.map((rack) => {
   return {
     rackId: rack.rackId,
     weight: totalWeight,
-    productIds, // Store product IDs as a string
+    productIds,
   };
 });
 

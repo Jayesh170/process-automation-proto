@@ -3,13 +3,12 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } fro
 import { rackPerformanceData } from "../../data/RackPerformanceData";
 
 function Stockchart() {
-  // Transform the data to calculate total weight and remaining capacity per rack
   const transformedData = rackPerformanceData.map((rack) => {
     const totalWeight = rack.products.reduce((sum, product) => sum + product.weight, 0);
     return {
       rackId: rack.rackId,
       totalWeight,
-      remainingCapacity: rack.maxCapacity - totalWeight, // Calculate remaining capacity
+      remainingCapacity: rack.maxCapacity - totalWeight, 
     };
   });
 
@@ -17,8 +16,6 @@ function Stockchart() {
     <div className="w-full flex flex-col justify-center items-center bg-[#1B1B1B] py-6">
       <ResponsiveContainer width="60%" height={350}>
         <BarChart data={transformedData} barCategoryGap="5%">  
-
-          {/* X-Axis displays Rack ID with clear spacing */}
           <XAxis 
             dataKey="rackId" 
             stroke="#FFF" 
@@ -26,8 +23,6 @@ function Stockchart() {
             tick={{ fill: "#FFF", fontSize: 14 }} 
             padding={{ left: 10, right: 10 }} 
           />
-
-          {/* Y-Axis with Weight label */}
           <YAxis 
             stroke="#FFF" 
             domain={[0, 20]} 
@@ -45,8 +40,6 @@ function Stockchart() {
               { value: "Remaining Capacity", type: "circle", color: "#FF8486" }
             ]}
           />
-
-          {/* Bars with updated data */}
           <Bar dataKey="totalWeight" fill="#2DDB81" barSize={35} name="Current Weight" stackId="a" />
           <Bar dataKey="remainingCapacity" fill="#FF8486" barSize={35} name="Remaining Capacity" stackId="a" />
 

@@ -2,14 +2,14 @@ import React from 'react';
 import { rackPerformanceData } from '../../data/RackPerformanceData';
 
 function AlertTab() {
-  // Original status calculation function (keep unchanged)
+
   const getStatus = (totalWeight, maxCapacity) => {
     if (totalWeight >= maxCapacity * 0.75) return { label: "CRITICAL", color: "bg-red-600 text-white" };
     if (totalWeight >= maxCapacity * 0.5) return { label: "WARNING", color: "bg-yellow-500 text-white" };
     return { label: "LOW", color: "bg-green-600 text-white" };
   };
 
-  // New warnings generator
+
   const getWarnings = () => {
     const warnings = [];
  
@@ -26,7 +26,6 @@ function AlertTab() {
       }
     });
 
-    // Check product quantities
     rackPerformanceData.forEach(rack => {
       rack.products.forEach(product => {
         if (product.quantity <= 10) {

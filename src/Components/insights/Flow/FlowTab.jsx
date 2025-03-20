@@ -28,14 +28,12 @@ const StockTable = ({ searchQuery }) => {
 
   return (
     <div className="mt-6 mx-10">
-      {/* Table Header */}
       <div className="grid grid-cols-3 bg-[#28A263] text-white text-sm font-semibold p-3 rounded-t-xl">
         <div className="text-left pl-4">PRODUCT ID</div>
         <div className="text-left">PRODUCT NAME</div>
         <div className="text-left">RACK NO (FIFO ORDER)</div>
       </div>
 
-      {/* Table Body */}
       <div className="divide-y divide-gray-700 bg-[#222222] rounded-b-xl">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product, index) => (

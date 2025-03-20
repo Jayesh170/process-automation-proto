@@ -14,14 +14,14 @@ function StockOps() {
 
   return (
     <div className="flex-1 ml-2 bg-[#1B1B1B] h-screen overflow-y-auto">
-      {/* Header Section */}
+
       <div className="flex justify-start items-start w-max mt-5 px-10 py-3 bg-[#1A1F1A] 
                       text-white font-bold text-xl shadow-lg max-w-[90%] md:max-w-[60%] mx-auto 
                       text-center">  
         <span className="text-[#28A263]">StockOps</span> : Inventory | Management & Operations
       </div>
 
-      {/* Title and Button Section */}
+
       <div className="flex items-center justify-between mt-10 mx-10">
         <h1 className="text-[#28A263] font-semibold text-4xl drop-shadow-[2px_2px_0px_white]">
           EXISTING STOCK
@@ -34,13 +34,11 @@ function StockOps() {
         </button>
       </div>
 
-      {/* Main Content Section */}
       <div className="flex flex-col">
         <Stockchart />
         <StockTable />
       </div>
 
-      {/* Buttons Section - Proper Spacing & Alignment */}
       <div className="flex justify-center items-center mt-10 gap-4">
         <button 
           onClick={() => setModalType("add")}
@@ -55,8 +53,6 @@ function StockOps() {
           REMOVE STOCK
         </button>
       </div>
-
-      {/* Conditional Rendering of Modals */}
       {modalType === "add" && <AddStockModal closeModal={closeModal} />}
       {modalType === "remove" && <RemoveStockModal closeModal={closeModal} />}
       {modalType === "register" && <RegisterProductModal closeModal={closeModal} />}

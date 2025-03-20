@@ -4,11 +4,10 @@ import { motion } from 'framer-motion';
 import { FiAlertCircle, FiPackage } from 'react-icons/fi';
 
 const NotifiTab = () => {
-  // Get all alerts from rack performance data
+
   const getAlerts = () => {
     const alerts = [];
 
-    // Check rack capacities
     rackPerformanceData.forEach(rack => {
       const totalWeight = rack.products.reduce((sum, p) => sum + p.weight, 0);
       const capacityPercentage = (totalWeight / rack.maxCapacity) * 100;
@@ -23,10 +22,10 @@ const NotifiTab = () => {
       }
     });
 
-    // Check product quantities
+
     rackPerformanceData.forEach(rack => {
       rack.products.forEach(product => {
-        if (product.quantity <= 10) { // Threshold for low stock
+        if (product.quantity <= 10) {
           alerts.push({
             type: 'product',
             message: `Low stock: ${product.productName} (${product.quantity} remaining)`,
