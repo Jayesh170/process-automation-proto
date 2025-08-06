@@ -6,7 +6,7 @@ from PIL import ImageTk, Image
 from pymongo import MongoClient
 
 
-client = MongoClient("mongodb+srv://atharva:1234@trade.jxgjfnq.mongodb.net/?retryWrites=true&w=majority&appName=trade")  
+client = MongoClient("")  #add mongodb api to connect database
 db = client["test"]
 collection = db["items"]
 
@@ -99,3 +99,4 @@ qr_label = tk.Label(root)
 qr_label.pack(pady=10)
 
 root.mainloop()
+
